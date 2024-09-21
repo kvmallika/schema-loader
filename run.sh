@@ -9,7 +9,6 @@ if [ "$SCHEMA_TYPE" == "mongo" ]; then
 
   curl -L https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem -o rds-combined-ca-bundle.pem
   mongo --ssl --host ${DOCDB_ENDPOINT}:27017 --sslCAFile rds-combined-ca-bundle.pem --username ${DOCDB_USER} --password ${DOCDB_PASS} <schema/${COMPONENT}.js
-
 fi
 
 if [ "$SCHEMA_TYPE" == "mysql" ]; then
